@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Example3.InvoiceCode", "Exa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example5.MvcWebApp.AzureAdB2C", "Example5.MvcWebApp.AzureAdB2C\Example5.MvcWebApp.AzureAdB2C.csproj", "{8019DAB0-F134-4980-8B1F-0190DF5A41BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example2.WebApiWithToken.IndividualAccounts.Postgres", "Example2.WebApiWithToken.IndividualAccounts.Postgres\Example2.WebApiWithToken.IndividualAccounts.Postgres.csproj", "{957A8B2D-FCCF-401E-96B1-EFF5C462577A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -174,6 +176,18 @@ Global
 		{8019DAB0-F134-4980-8B1F-0190DF5A41BD}.Release|x64.Build.0 = Release|Any CPU
 		{8019DAB0-F134-4980-8B1F-0190DF5A41BD}.Release|x86.ActiveCfg = Release|Any CPU
 		{8019DAB0-F134-4980-8B1F-0190DF5A41BD}.Release|x86.Build.0 = Release|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Debug|x64.Build.0 = Debug|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Debug|x86.Build.0 = Debug|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Release|x64.ActiveCfg = Release|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Release|x64.Build.0 = Release|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Release|x86.ActiveCfg = Release|Any CPU
+		{957A8B2D-FCCF-401E-96B1-EFF5C462577A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

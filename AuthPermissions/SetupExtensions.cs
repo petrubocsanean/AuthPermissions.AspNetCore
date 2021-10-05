@@ -26,7 +26,7 @@ namespace AuthPermissions
         /// <param name="services">The DI register instance</param>
         /// <param name="options">optional: You can set certain options to change the way this library works</param>
         /// <returns></returns>
-        public static AuthSetupData RegisterAuthPermissions<TEnumPermissions>(this IServiceCollection services, 
+        public static AuthSetupData RegisterAuthPermissions<TEnumPermissions>(this IServiceCollection services,
             Action<AuthPermissionsOptions> options = null) where TEnumPermissions : Enum
         {
             var authOptions = new AuthPermissionsOptions();
@@ -36,6 +36,28 @@ namespace AuthPermissions
             authOptions.InternalData.EnumPermissionsType.ThrowExceptionIfEnumHasMembersHaveDuplicateValues();
 
             return new AuthSetupData(services, authOptions);
+        }
+
+        /// <summary>
+        /// This will register a PostgreSQL Server database to hold the AuthPermissions database.
+        /// </summary>
+        /// <param name="setupData"></param>
+        /// <param name="connectionString"></param>
+        /// <returns></returns>
+        public static AuthSetupData UsingEfCoreNpgsql(this AuthSetupData setupData, string connectionString)
+        {
+            connectionString.CheckConnectString();
+
+            setupData.Services.AddDbContext<AuthPermissionsDbContext>(
+                options =>
+                {
+                    options.UseNpgsql(connectionString, dbOptions =>
+                        dbOptions.MigrationsHistoryTable(AuthDbConstants.MigrationsHistoryTableName));
+                    EntityFramework.Exceptions.PostgreSQL.ExceptionProcessorExtensions.UseExceptionProcessor(options);
+                });
+            setupData.Options.InternalData.AuthPDatabaseType = AuthPDatabaseTypes.PostgreSQL;
+
+            return setupData;
         }
 
         /// <summary>
@@ -74,7 +96,7 @@ namespace AuthPermissions
                 dbOptions.UseSqlite(inMemoryConnection);
                 EntityFramework.Exceptions.Sqlite.ExceptionProcessorExtensions.UseExceptionProcessor(dbOptions);
             });
-                
+
             setupData.Options.InternalData.AuthPDatabaseType = AuthPDatabaseTypes.SqliteInMemory;
 
             //We build a local AuthPermissionsDbContext and create the database

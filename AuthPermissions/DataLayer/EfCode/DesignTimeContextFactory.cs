@@ -25,12 +25,13 @@ namespace AuthPermissions.DataLayer.EfCode
         {
             var optionsBuilder =                              
                 new DbContextOptionsBuilder<AuthPermissionsDbContext>(); 
-            optionsBuilder.UseSqlServer(connectionString, dbOptions =>
+            optionsBuilder.UseNpgsql(connectionString, dbOptions =>
                 dbOptions.MigrationsHistoryTable(AuthDbConstants.MigrationsHistoryTableName));    
 
             return new AuthPermissionsDbContext(optionsBuilder.Options); 
         }
     }
+    // dotnet ef migrations Add "Initial" --context AuthPermissionsDbContext -o DataLayer/Migrations
     /******************************************************************************
     * NOTES ON MIGRATION:
     *
